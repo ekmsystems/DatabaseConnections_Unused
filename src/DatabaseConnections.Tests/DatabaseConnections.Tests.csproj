@@ -155,9 +155,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DatabaseTests.cs" />
-    <Compile Include="DbCommandBuilderTests.cs" />
+    <Compile Include="DatabaseCommandExecutedEventArgsTests.cs" />
+    <Compile Include="DatabaseCommandExecutingEventArgsTests.cs" />
+    <Compile Include="DatabaseCommandTests.cs" />
     <Compile Include="DatabaseExtensionsTests.cs" />
+    <Compile Include="DbParamTests.cs" />
     <Compile Include="MoqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
