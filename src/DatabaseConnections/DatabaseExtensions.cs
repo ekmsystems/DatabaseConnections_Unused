@@ -22,10 +22,10 @@ namespace DatabaseConnections
             });
         }
 
-        public static DataSet ExecuteQuery(this IDatabase database, int startRecord, int maxRecords, string tableName,
+        public static DataSet ExecutePagedQuery(this IDatabase database, int startRecord, int maxRecords, string tableName,
             string commandText, params DbParam[] parameters)
         {
-            return database.ExecuteQuery(new DatabaseCommand
+            return database.ExecutePagedQuery(new DatabaseCommand
             {
                 CommandText = commandText,
                 Parameters = parameters

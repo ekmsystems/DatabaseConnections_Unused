@@ -6,11 +6,11 @@ namespace DatabaseConnections
 {
     public interface IDatabase
     {
-        IList<IDatabaseCommandInterceptor> Inteceptors { get; }
+        IList<IDatabaseCommandInterceptor> Interceptors { get; }
 
         int ExecuteNonQuery(DatabaseCommand command);
         DataSet ExecuteQuery(DatabaseCommand command);
-        DataSet ExecuteQuery(DatabaseCommand command, int startRecord, int maxRecords, string tableName);
+        DataSet ExecutePagedQuery(DatabaseCommand command, int startRecord, int maxRecords, string tableName);
         object ExecuteScalar(DatabaseCommand command);
         IDataReader ExecuteReader(DatabaseCommand command);
 

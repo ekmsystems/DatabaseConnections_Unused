@@ -52,7 +52,7 @@ namespace DatabaseConnections.Tests
         }
 
         [Test]
-        public void ExecuteQuery_With_Pagination_ShouldCall_Database_ExecutePagedQuery_With_DatabaseCommand()
+        public void ExecutePagedQuery_ShouldCall_Database_ExecutePagedQuery_With_DatabaseCommand()
         {
             const string commandText = "COMMAND TEXT";
             var parameters = new[]
@@ -60,9 +60,9 @@ namespace DatabaseConnections.Tests
                 new DbParam("@test", 1)
             };
 
-            _database.Object.ExecuteQuery(1, 1, "test", commandText, parameters);
+            _database.Object.ExecutePagedQuery(1, 1, "test", commandText, parameters);
 
-            _database.Verify(x => x.ExecuteQuery(
+            _database.Verify(x => x.ExecutePagedQuery(
                     It.Is<DatabaseCommand>(y =>
                         y.CommandText == commandText &&
                         y.Parameters == parameters),
