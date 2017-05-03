@@ -13,7 +13,7 @@ namespace DatabaseConnections.Tests
             var command = new DatabaseCommand();
             var timeTaken = new TimeSpan(1, 2, 3, 4);
 
-            var e = new DatabaseCommandExecutedEventArgs(command,  timeTaken);
+            var e = new DatabaseCommandExecutedEventArgs(command, timeTaken);
 
             Assert.AreEqual(command, e.Command);
             Assert.AreEqual(timeTaken, e.TimeTaken);

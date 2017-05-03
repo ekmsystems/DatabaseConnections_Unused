@@ -28,8 +28,8 @@ namespace DatabaseConnections.Tests
 
             _database.Verify(x => x.ExecuteNonQuery(
                     It.Is<DatabaseCommand>(y =>
-                        (y.CommandText == commandText) &&
-                        (y.Parameters == parameters))),
+                        y.CommandText == commandText &&
+                        y.Parameters == parameters)),
                 Times.Once);
         }
 
@@ -46,8 +46,8 @@ namespace DatabaseConnections.Tests
 
             _database.Verify(x => x.ExecuteQuery(
                     It.Is<DatabaseCommand>(y =>
-                        (y.CommandText == commandText) &&
-                        (y.Parameters == parameters))),
+                        y.CommandText == commandText &&
+                        y.Parameters == parameters)),
                 Times.Once);
         }
 
@@ -64,8 +64,8 @@ namespace DatabaseConnections.Tests
 
             _database.Verify(x => x.ExecuteQuery(
                     It.Is<DatabaseCommand>(y =>
-                        (y.CommandText == commandText) &&
-                        (y.Parameters == parameters)),
+                        y.CommandText == commandText &&
+                        y.Parameters == parameters),
                     1, 1, "test"),
                 Times.Once);
         }
@@ -83,8 +83,8 @@ namespace DatabaseConnections.Tests
 
             _database.Verify(x => x.ExecuteReader(
                     It.Is<DatabaseCommand>(y =>
-                        (y.CommandText == commandText) &&
-                        (y.Parameters == parameters))),
+                        y.CommandText == commandText &&
+                        y.Parameters == parameters)),
                 Times.Once);
         }
 
@@ -101,8 +101,8 @@ namespace DatabaseConnections.Tests
 
             _database.Verify(x => x.ExecuteScalar(
                     It.Is<DatabaseCommand>(y =>
-                        (y.CommandText == commandText) &&
-                        (y.Parameters == parameters))),
+                        y.CommandText == commandText &&
+                        y.Parameters == parameters)),
                 Times.Once);
         }
     }
