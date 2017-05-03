@@ -130,6 +130,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="DatabaseCommand.cs" />
     <Compile Include="DatabaseCommandExecutedEventArgs.cs" />
     <Compile Include="DatabaseCommandExecutingEventArgs.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="IDatabase.cs" />
     <Compile Include="IDatabaseCommandInterceptor.cs" />
     <Compile Include="DbParam.cs" />
+    <Compile Include="IDbConnectionWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
