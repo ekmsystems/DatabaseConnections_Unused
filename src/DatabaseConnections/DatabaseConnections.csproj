@@ -135,7 +135,6 @@
     <Compile Include="DatabaseCommandExecutedEventArgs.cs" />
     <Compile Include="DatabaseCommandExecutingEventArgs.cs" />
     <Compile Include="DatabaseExtensions.cs" />
-    <Compile Include="IDatabase.cs" />
     <Compile Include="IDatabaseCommandInterceptor.cs" />
     <Compile Include="DbParam.cs" />
     <Compile Include="IDbConnectionWrapper.cs" />

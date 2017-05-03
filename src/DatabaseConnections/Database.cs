@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace DatabaseConnections
 {
-    public abstract class Database : IDatabase
+    public abstract class Database
     {
         private readonly IDbConnectionWrapper _connection;
 

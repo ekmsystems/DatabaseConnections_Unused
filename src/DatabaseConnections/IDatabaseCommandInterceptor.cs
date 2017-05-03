@@ -2,6 +2,6 @@
 {
     public interface IDatabaseCommandInterceptor
     {
-        void Intercept(DatabaseCommand command, IDatabase database);
+        void Intercept(DatabaseCommand command, Database database);
     }
 }

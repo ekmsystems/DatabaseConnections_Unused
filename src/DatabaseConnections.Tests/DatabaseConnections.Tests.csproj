@@ -155,6 +155,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="DatabaseCommandExecutedEventArgsTests.cs" />
+    <Compile Include="DatabaseCommandExecutingEventArgsTests.cs" />
     <Compile Include="DatabaseCommandTests.cs" />
     <Compile Include="DatabaseExtensionsTests.cs" />
     <Compile Include="DatabaseTests.cs" />
