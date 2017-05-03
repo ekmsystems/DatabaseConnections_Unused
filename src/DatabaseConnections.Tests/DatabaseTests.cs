@@ -68,19 +68,6 @@ namespace DatabaseConnections.Tests
         }
 
         [Test]
-        public void ExecuteNonQuery_ShouldCall_Interceptors()
-        {
-            var command = new DatabaseCommand();
-            var interceptor = new Mock<IDatabaseCommandInterceptor>();
-
-            _database.Interceptors.Add(interceptor.Object);
-
-            _database.ExecuteNonQuery(command);
-
-            interceptor.Verify(x => x.Intercept(command, _database), Times.Once);
-        }
-
-        [Test]
         public void ExecuteQuery_ShouldCall_ExecuteQuery()
         {
             var command = new DatabaseCommand();
@@ -127,19 +114,6 @@ namespace DatabaseConnections.Tests
             _database.ExecuteQuery(command);
 
             Assert.IsTrue(invoked);
-        }
-
-        [Test]
-        public void ExecuteQuery_ShouldCall_Interceptors()
-        {
-            var command = new DatabaseCommand();
-            var interceptor = new Mock<IDatabaseCommandInterceptor>();
-
-            _database.Interceptors.Add(interceptor.Object);
-
-            _database.ExecuteQuery(command);
-
-            interceptor.Verify(x => x.Intercept(command, _database), Times.Once);
         }
 
         [Test]
@@ -192,19 +166,6 @@ namespace DatabaseConnections.Tests
         }
 
         [Test]
-        public void ExecutePagedQuery_ShouldCall_Interceptors()
-        {
-            var command = new DatabaseCommand();
-            var interceptor = new Mock<IDatabaseCommandInterceptor>();
-
-            _database.Interceptors.Add(interceptor.Object);
-
-            _database.ExecutePagedQuery(command, 1, 1, "test");
-
-            interceptor.Verify(x => x.Intercept(command, _database), Times.Once);
-        }
-
-        [Test]
         public void ExecuteScalar_ShouldCall_ExecuteScalar()
         {
             var command = new DatabaseCommand();
@@ -250,19 +211,6 @@ namespace DatabaseConnections.Tests
             _database.ExecuteScalar(command);
 
             Assert.IsTrue(invoked);
-        }
-
-        [Test]
-        public void ExecuteScalar_ShouldCall_Interceptors()
-        {
-            var command = new DatabaseCommand();
-            var interceptor = new Mock<IDatabaseCommandInterceptor>();
-
-            _database.Interceptors.Add(interceptor.Object);
-
-            _database.ExecuteScalar(command);
-
-            interceptor.Verify(x => x.Intercept(command, _database), Times.Once);
         }
 
         [Test]
@@ -312,19 +260,6 @@ namespace DatabaseConnections.Tests
             _database.ExecuteReader(command);
 
             Assert.IsTrue(invoked);
-        }
-
-        [Test]
-        public void ExecuteReader_ShouldCall_Interceptors()
-        {
-            var command = new DatabaseCommand();
-            var interceptor = new Mock<IDatabaseCommandInterceptor>();
-
-            _database.Interceptors.Add(interceptor.Object);
-
-            _database.ExecuteReader(command);
-
-            interceptor.Verify(x => x.Intercept(command, _database), Times.Once);
         }
     }
 }

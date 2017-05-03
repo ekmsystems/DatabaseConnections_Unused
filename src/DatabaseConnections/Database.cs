@@ -14,12 +14,8 @@ namespace DatabaseConnections
             _connection = connection;
         }
 
-        public IList<IDatabaseCommandInterceptor> Interceptors { get; } = new List<IDatabaseCommandInterceptor>();
-
         public int ExecuteNonQuery(DatabaseCommand command)
         {
-            RunInterceptors(command);
-
             OnExecuting(new DatabaseCommandExecutingEventArgs(command));
 
             var result = Execute(() => _connection.ExecuteNonQuery(command));
@@ -31,8 +27,6 @@ namespace DatabaseConnections
 
         public DataSet ExecuteQuery(DatabaseCommand command)
         {
-            RunInterceptors(command);
-
             OnExecuting(new DatabaseCommandExecutingEventArgs(command));
 
             var result = Execute(() => _connection.ExecuteQuery(command));
@@ -44,8 +38,6 @@ namespace DatabaseConnections
 
         public DataSet ExecutePagedQuery(DatabaseCommand command, int startRecord, int maxRecords, string tableName)
         {
-            RunInterceptors(command);
-
             OnExecuting(new DatabaseCommandExecutingEventArgs(command));
 
             var result = Execute(() => _connection.ExecuteQuery(command, startRecord, maxRecords, tableName));
@@ -57,8 +49,6 @@ namespace DatabaseConnections
 
         public object ExecuteScalar(DatabaseCommand command)
         {
-            RunInterceptors(command);
-
             OnExecuting(new DatabaseCommandExecutingEventArgs(command));
 
             var result = Execute(() => _connection.ExecuteScalar(command));
@@ -70,8 +60,6 @@ namespace DatabaseConnections
 
         public IDataReader ExecuteReader(DatabaseCommand command)
         {
-            RunInterceptors(command);
-
             OnExecuting(new DatabaseCommandExecutingEventArgs(command));
 
             var result = Execute(() => _connection.ExecuteReader(command));
@@ -92,12 +80,6 @@ namespace DatabaseConnections
         protected virtual void OnExecuted(DatabaseCommandExecutedEventArgs e)
         {
             Executed?.Invoke(this, e);
-        }
-
-        private void RunInterceptors(DatabaseCommand command)
-        {
-            foreach (var interceptor in Interceptors)
-                interceptor.Intercept(command, this);
         }
 
         private static TimedResult<T> Execute<T>(Func<T> func)
